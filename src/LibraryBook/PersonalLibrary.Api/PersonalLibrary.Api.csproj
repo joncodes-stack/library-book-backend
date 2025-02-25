@@ -22,10 +22,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\LibraryBook.Business\LibraryBook.Application.csproj" />
-    <ProjectReference Include="..\LibraryBook.CrossCutting\LibraryBook.CrossCutting.csproj" />
-    <ProjectReference Include="..\LibraryBook.EF\LibraryBook.EF.csproj" />
-    <ProjectReference Include="..\LibraryBook.Ioc\LibraryBook.Ioc.csproj" />
+    <ProjectReference Include="..\PersonalLibrary.Business\PersonalLibrary.Application.csproj" />
+    <ProjectReference Include="..\PersonalLibrary.CrossCutting\PersonalLibrary.CrossCutting.csproj" />
+    <ProjectReference Include="..\PersonalLibrary.EF\PersonalLibrary.EF.csproj" />
+    <ProjectReference Include="..\PersonalLibrary.Ioc\PersonalLibrary.Ioc.csproj" />
   </ItemGroup>
 
 </Project>

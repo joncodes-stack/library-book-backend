@@ -13,9 +13,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\LibraryBook.CrossCutting\LibraryBook.CrossCutting.csproj" />
-    <ProjectReference Include="..\LibraryBook.Domain\LibraryBook.Domain.csproj" />
-    <ProjectReference Include="..\LibraryBook.EF\LibraryBook.EF.csproj" />
+    <ProjectReference Include="..\PersonalLibrary.CrossCutting\PersonalLibrary.CrossCutting.csproj" />
+    <ProjectReference Include="..\PersonalLibrary.Domain\PersonalLibrary.Domain.csproj" />
+    <ProjectReference Include="..\PersonalLibrary.EF\PersonalLibrary.EF.csproj" />
   </ItemGroup>
 
 </Project>
