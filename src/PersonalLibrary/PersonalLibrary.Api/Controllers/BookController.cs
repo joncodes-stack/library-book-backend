@@ -34,7 +34,7 @@ namespace LibraryBook.Api.Controllers
             return _mapper.Map<IEnumerable<BookDto>>(await _bookService.GetByUser(idUser));
         }
 
-        [HttpPost("add-book")]
+        [HttpPost]
         public async Task<ActionResult> AddBook(BookDto bookDto)
         {
             if (!ModelState.IsValid) return CustomResponse(ModelState);
@@ -46,7 +46,7 @@ namespace LibraryBook.Api.Controllers
             return CustomResponse("Dados do livro cadastrado com sucesso");
         }
 
-        [HttpPut("update-book")]
+        [HttpPut]
         public async Task<IActionResult> UpdateBook(BookDto bookDto)
         {
             if (string.IsNullOrEmpty(bookDto.Id.ToString()))
@@ -70,7 +70,7 @@ namespace LibraryBook.Api.Controllers
             return CustomResponse("Dados do livro Atualizado com sucesso!");
         }
 
-        [HttpDelete("remove-book")]
+        [HttpDelete]
         public async Task<IActionResult> RemoveBook(Guid id)
         {
             if (id == null)
