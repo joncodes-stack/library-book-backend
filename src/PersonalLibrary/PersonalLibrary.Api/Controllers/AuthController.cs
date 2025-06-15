@@ -1,19 +1,15 @@
-﻿using LibraryBook.Domain.Dtos;
-using LibraryBook.Domain.Entities;
-using LibraryBook.Domain.Interface;
-using LibraryBook.Domain.Interface.Service;
-using LibraryBook.CrossCutting.Interfaces;
-using LibraryBook.Domain.Dtos;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 using BC = BCrypt.Net.BCrypt;
+using PersonalLibrary.Domain.Interface.Service;
+using PersonalLibrary.CrossCutting.Interfaces;
+using PersonalLibrary.Domain.Interface;
+using PersonalLibrary.Domain.Dtos;
 
-namespace LibraryBook.Api.Controllers
+namespace PersonalLibrary.Api.Controllers
 {
     [Route("api/auth")]
     [ApiController]
@@ -43,7 +39,7 @@ namespace LibraryBook.Api.Controllers
                 return BadRequest(new { message = "Email or password is incorrect" });
             }
 
-            if (user.Active == false)
+            if (user.ValidEmail == false)
             {
                 return CustomResponse($@"O Email {login.Email} não foi validado");
             }

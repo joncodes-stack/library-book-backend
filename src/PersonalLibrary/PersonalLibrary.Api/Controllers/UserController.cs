@@ -1,12 +1,13 @@
 ﻿using AutoMapper;
-using LibraryBook.Domain.Dtos;
-using LibraryBook.Domain.Entities;
-using LibraryBook.Domain.Interface;
-using LibraryBook.Domain.Interface.Service;
-using LibraryBook.CrossCutting.Interfaces;
 using Microsoft.AspNetCore.Mvc;
-using BC = BCrypt.Net.BCrypt;
 using Microsoft.Win32;
+using PersonalLibrary.Api.Controllers;
+using PersonalLibrary.CrossCutting.Interfaces;
+using PersonalLibrary.Domain.Dtos;
+using PersonalLibrary.Domain.Entities;
+using PersonalLibrary.Domain.Interface;
+using PersonalLibrary.Domain.Interface.Service;
+using BC = BCrypt.Net.BCrypt;
 
 
 namespace LibraryBook.Api.Controllers
@@ -51,7 +52,7 @@ namespace LibraryBook.Api.Controllers
 
             await _userService.Add(user);
 
-            await _emailService.SendValidatemEmailAsync(register.Email,register.FullName, code);
+            await _emailService.SendValidatemEmailAsync(register.Email,register.Name, code);
 
             return CustomResponse("Usuário Cadastrado com sucesso, favor verifique sua caixa de email para confirmação !!");
         }
@@ -61,7 +62,7 @@ namespace LibraryBook.Api.Controllers
         {
             var user = await _userService.GetUserByCode(code);
 
-            user.Active = true;
+            user.ValidEmail = true;
 
             await _userService.Update(user);
 
@@ -77,10 +78,8 @@ namespace LibraryBook.Api.Controllers
 
             var user = await _userService.GetById(updateProfile.Id);
 
-            user.FullName = updateProfile.FullName;
-            user.Email = updateProfile.Email;
-            user.PhoneNumber = updateProfile.PhoneNumber;
-            user.Password = updateProfile.Password;
+            user.Name = updateProfile.Name;
+            user.Email = updateProfile.Email;;
 
             await _userService.Update(user);
 

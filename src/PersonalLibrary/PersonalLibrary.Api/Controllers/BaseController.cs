@@ -1,10 +1,9 @@
-﻿using LibraryBook.Domain.Interface;
-using LibraryBook.Domain.Notificacoes;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
+using PersonalLibrary.Domain.Interface;
+using PersonalLibrary.Domain.Notificacoes;
 
-namespace LibraryBook.Api.Controllers
+namespace PersonalLibrary.Api.Controllers
 {
     [ApiController]
     public class BaseController : ControllerBase

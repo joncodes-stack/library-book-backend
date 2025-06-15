@@ -1,11 +1,11 @@
 ﻿using FluentValidation;
 using FluentValidation.Results;
-using LibraryBook.Domain.Entities;
-using LibraryBook.Domain.Interface;
-using LibraryBook.Domain.Notificacoes;
+using PersonalLibrary.Domain.Entities;
+using PersonalLibrary.Domain.Interface;
+using PersonalLibrary.Domain.Notificacoes;
 
 
-namespace LibraryBook.Domain.Services
+namespace PersonalLibrary.Domain.Services
 {
     public class BaseService
     {

@@ -1,11 +1,6 @@
 ﻿using AutoMapper;
-using LibraryBook.Domain.Dtos;
-using LibraryBook.Domain.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using PersonalLibrary.Domain.Dtos;
+using PersonalLibrary.Domain.Entities;
 
 namespace LibraryBook.Ioc
 {
@@ -13,8 +8,16 @@ namespace LibraryBook.Ioc
     {
         public AutomapperConfiguration()
         {
-            CreateMap<User, RegisterUserDto>().ReverseMap();
-            CreateMap<Book, BookDto>().ReverseMap();
+
+            CreateMap<RegisterUserDto, User>()
+            .ForMember(dest => dest.Password, opt => opt.Ignore())
+            .ForMember(dest => dest.Id, opt => opt.Ignore())
+            .ForMember(dest => dest.CreatedAt, opt => opt.Ignore())
+            .ForMember(dest => dest.UpdatedAt, opt => opt.Ignore());
+
+            CreateMap<Item, ItemDto>().ReverseMap();
+
+            CreateMap<User, UserTokenDto>();
         }
     }
 }

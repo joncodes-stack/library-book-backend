@@ -1,11 +1,6 @@
-﻿using LibraryBook.Domain.Interface;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using PersonalLibrary.Domain.Interface;
 
-namespace LibraryBook.Domain.Notificacoes
+namespace PersonalLibrary.Domain.Notificacoes
 {
     public class Notificador : INotificador
     {

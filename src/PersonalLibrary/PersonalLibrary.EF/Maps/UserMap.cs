@@ -1,13 +1,9 @@
-﻿using LibraryBook.Domain.Entities;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using PersonalLibrary.Domain.Entities;
 
-namespace LibraryBook.EF.Maps
+
+namespace PersonalLibrary.EF.Maps
 {
     public class UserMap : BaseMap<User>
     {
@@ -17,16 +13,15 @@ namespace LibraryBook.EF.Maps
         {
             base.Configure(builder);
 
-            builder.Property(x => x.FullName).HasColumnName("fullName").HasMaxLength(100).IsRequired();
+            builder.Property(x => x.Name).HasColumnName("fullName").HasMaxLength(100).IsRequired();
             builder.Property(x => x.Email).HasColumnName("email").HasMaxLength(50).IsRequired();
-            builder.Property(x => x.PhoneNumber).HasColumnName("phoneNumber").HasMaxLength(12).IsRequired();
             builder.Property(x => x.Password).HasColumnName("password").HasMaxLength(500).IsRequired();
             builder.Property(x => x.RefreshToken).HasColumnName("refreshToken").HasMaxLength(500);
             builder.Property(x => x.RefreshTokenExpireTime).HasColumnName("refreshTokenExpireTime");
             builder.Property(x => x.ProfilePic).HasColumnName("profilePic");
-            builder.Property(x => x.Active).HasColumnName("active");
             builder.Property(x => x.Code).HasColumnName("code");
-
+            builder.Property(x => x.CreatedAt).HasColumnName("createdAt").IsRequired();
+            builder.Property(x => x.UpdatedAt).HasColumnName("updatedAt").IsRequired();
         }
     }
 }

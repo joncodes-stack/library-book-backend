@@ -1,20 +1,13 @@
-﻿using LibraryBook.Domain.Dtos;
-using LibraryBook.Domain.Entities;
-using LibraryBook.Domain.Interface.Repository;
-using LibraryBook.CrossCutting.Interfaces;
-using LibraryBook.CrossCutting.Models;
-using Microsoft.Extensions.Configuration;
+﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Options;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+using PersonalLibrary.CrossCutting.Interfaces;
+using PersonalLibrary.CrossCutting.Models;
+using PersonalLibrary.Domain.Dtos;
+using PersonalLibrary.Domain.Interface.Repository;
 using System.Net;
 using System.Net.Mail;
-using System.Text;
-using System.Threading.Tasks;
-using static System.Net.Mime.MediaTypeNames;
 
-namespace LibraryBook.CrossCutting.Services
+namespace PersonalLibrary.CrossCutting.Services
 {
     public class EmailService : IEmailService
     {

@@ -1,28 +1,23 @@
-﻿using LibraryBook.Domain.Entities;
-using LibraryBook.Domain.Interface.Repository;
-using LibraryBook.EF.Context;
-using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Microsoft.EntityFrameworkCore;
+using PersonalLibrary.Domain.Entities;
+using PersonalLibrary.Domain.Interface.Repository;
+using PersonalLibrary.EF.Context;
 
-namespace LibraryBook.EF.Repositories
+namespace PersonalLibrary.EF.Repositories
 {
     public class UserRepository : BaseRepository<User>, IUserRepository
     {
-        public UserRepository(LibraryBookContext libraryBook) : base(libraryBook) {}
+        public UserRepository(PersonalLibraryContext personalLibraryContext) : base(personalLibraryContext) {}
 
         public async Task<User> GetUserByEmail(string email)
         {
-            return await _libraryBook.User.AsNoTracking()
+            return await _personalLibraryContext.User.AsNoTracking()
                 .FirstOrDefaultAsync(x => x.Email == email);
         }
 
         public async Task<User> GetUserByCode(int code)
         {
-            return await _libraryBook.User.AsNoTracking()
+            return await _personalLibraryContext.User.AsNoTracking()
                 .FirstOrDefaultAsync(x => x.Code == code);
         }
     }

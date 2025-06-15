@@ -1,22 +1,18 @@
-﻿using LibraryBook.Domain.Dtos;
-using LibraryBook.Domain.Entities;
-using LibraryBook.Domain.Interface;
-using LibraryBook.Domain.Interface.Repository;
-using LibraryBook.Domain.Interface.Service;
-using LibraryBook.Domain.Validations;
-using Microsoft.Extensions.Configuration;
+﻿using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
-using System;
-using System.Collections.Generic;
+using PersonalLibrary.Domain.Dtos;
+using PersonalLibrary.Domain.Entities;
+using PersonalLibrary.Domain.Interface;
+using PersonalLibrary.Domain.Interface.Repository;
+using PersonalLibrary.Domain.Interface.Service;
+using PersonalLibrary.Domain.Validations;
 using System.IdentityModel.Tokens.Jwt;
-using System.Linq;
-using System.Linq.Expressions;
 using System.Security.Claims;
 using System.Security.Cryptography;
 using System.Text;
-using System.Threading.Tasks;
 
-namespace LibraryBook.Domain.Services
+
+namespace PersonalLibrary.Domain.Services
 {
     public class UserService : BaseService, IUserService
     {
@@ -72,7 +68,8 @@ namespace LibraryBook.Domain.Services
                 {
                     Subject = new ClaimsIdentity(new Claim[]
                     {
-                        new Claim("Name", user.FullName),
+                        new Claim("Name", user.Name),
+                        new Claim("Email", user.Email),
 
                     }),
 
@@ -90,9 +87,9 @@ namespace LibraryBook.Domain.Services
                     AccessToken = encodedToken,
                     ExpiresIn = TimeSpan.FromHours(8).TotalSeconds,
 
-                    UserToken = new UserTokenDto
+                    UserTokenDto = new UserTokenDto
                     {
-                        Id = user.Id.ToString(),
+                        Id = user.Id,
                         Email = user.Email,
                     }
                 };
@@ -124,6 +121,7 @@ namespace LibraryBook.Domain.Services
 
         public async Task<User> GetUserByEmail(string email)
         {
+
             return await _userRepository.GetUserByEmail(email);
         }
 

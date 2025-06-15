@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.Design;
 
-namespace LibraryBook.Domain.Entities
+namespace PersonalLibrary.Domain.Entities
 {
     public class User : BaseEntity
     {
@@ -13,26 +9,27 @@ namespace LibraryBook.Domain.Entities
                 
         }
 
-        public User(string fullName, string email, string phoneNumber, string password, string profilePic, bool active, int? code, string? refreshToken, DateTime refreshTokenExpireTime)
+        public User(string name, string email, string password, string profilePic, int? code, bool validEmail, string? refreshToken, DateTime refreshTokenExpireTime)
         {
-            FullName = fullName;
+            Name = name;
             Email = email;
-            PhoneNumber = phoneNumber;
             Password = password;
             ProfilePic = profilePic;
-            Active = active;
             Code = code;
             RefreshToken = refreshToken;
             RefreshTokenExpireTime = refreshTokenExpireTime;
+            CreatedAt = DateTime.Now;
+            ValidEmail = validEmail;
         }
 
-        public string FullName { get; set; }
+        public string Name { get; set; }
         public string Email { get; set; }
-        public string PhoneNumber { get; set; }
         public string Password { get; set; }
         public string ProfilePic { get; set; }
-        public bool Active { get; set; }
         public int? Code { get; set; }
+        public bool ValidEmail { get; set; }
+        public DateTime CreatedAt { get; set; }
+        public DateTime UpdatedAt { get; set; }
         public string? RefreshToken { get; set; }
         public DateTime RefreshTokenExpireTime { get; set; }
     }

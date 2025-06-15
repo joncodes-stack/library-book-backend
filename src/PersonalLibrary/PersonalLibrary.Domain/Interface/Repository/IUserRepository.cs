@@ -1,11 +1,6 @@
-﻿using LibraryBook.Domain.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using PersonalLibrary.Domain.Entities;
 
-namespace LibraryBook.Domain.Interface.Repository
+namespace PersonalLibrary.Domain.Interface.Repository
 {
     public interface IUserRepository : IBaseRepository<User>
     {

@@ -1,13 +1,8 @@
 ﻿namespace PersonalLibrary.Domain.Entities
 {
-    public class Gender : BaseEntity
+    public class Status : BaseEntity
     {
-        public Gender()
-        {
-                
-        }
-
-        public Gender(string name)
+        public Status(string name)
         {
             Name = name;
         }

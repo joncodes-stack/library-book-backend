@@ -1,18 +1,14 @@
-﻿using LibraryBook.Domain.Entities;
-using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Microsoft.EntityFrameworkCore;
+using PersonalLibrary.Domain.Entities;
 
-namespace LibraryBook.EF.Context
+namespace PersonalLibrary.EF.Context
 {
-    public class LibraryBookContext : DbContext
+    public class PersonalLibraryContext : DbContext
     {
         public DbSet<User> User { get; set; }
         public DbSet<Gender> Gender { get; set; }
-        public DbSet<Book> Book { get; set; }
+        public DbSet<Status> Status { get; set; }
+        public DbSet<Item> Item { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -21,12 +17,12 @@ namespace LibraryBook.EF.Context
             modelBuilder.ApplyConfigurationsFromAssembly(GetType().Assembly);
         }
 
-        public LibraryBookContext()
+        public PersonalLibraryContext()
         {
             ChangeTracker.AutoDetectChangesEnabled = false;
         }
 
-        public LibraryBookContext(DbContextOptions<LibraryBookContext> options) : base(options)
+        public PersonalLibraryContext(DbContextOptions<PersonalLibraryContext> options) : base(options)
         {
             ChangeTracker.AutoDetectChangesEnabled = false;
         }

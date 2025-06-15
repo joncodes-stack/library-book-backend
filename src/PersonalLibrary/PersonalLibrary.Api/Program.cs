@@ -1,9 +1,7 @@
 using LibraryBook.Api.Configuration;
-using LibraryBook.EF.Context;
 using LibraryBook.Ioc;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Hosting;
-using Swashbuckle.AspNetCore.SwaggerGen;
+using PersonalLibrary.EF.Context;
 using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -14,20 +12,16 @@ builder.Configuration
     .AddJsonFile($"appsettings.{builder.Environment.EnvironmentName}.json", true, true)
 .AddEnvironmentVariables();
 
-
-// Add services to the container.
-
 builder.Services.AddControllers();
 
-// ConfigureServices
 
-builder.Services.AddDbContext<LibraryBookContext>(options =>
+builder.Services.AddDbContext<PersonalLibraryContext>(options =>
 {
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
+    var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+    options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));
 });
 
 
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(o =>
 {

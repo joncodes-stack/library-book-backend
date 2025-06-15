@@ -1,15 +1,9 @@
-﻿using LibraryBook.Domain.Entities;
-using LibraryBook.Domain.Interface.Repository;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using PersonalLibrary.Domain.Entities;
 
-namespace LibraryBook.Domain.Interface.Repository
+namespace PersonalLibrary.Domain.Interface.Repository
 {
-    public interface IBookRepository : IBaseRepository<Book>
+    public interface IItemRepository : IBaseRepository<Item>
     {
-        Task<IEnumerable<Book>> GetBookByUser(Guid idUser);
+        Task<IEnumerable<Item>> GetItemByUser(Guid idUser);
     }
 }

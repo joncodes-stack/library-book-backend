@@ -1,7 +1,7 @@
-﻿using LibraryBook.Domain.Dtos;
-using LibraryBook.Domain.Entities;
+﻿using PersonalLibrary.Domain.Dtos;
+using PersonalLibrary.Domain.Entities;
 
-namespace LibraryBook.Domain.Interface.Service
+namespace PersonalLibrary.Domain.Interface.Service
 {
     public interface IUserService : IDisposable
     {
