@@ -25,12 +25,12 @@ namespace PersonalLibrary.Domain.Entities
         public string Name { get; set; }
         public string Email { get; set; }
         public string Password { get; set; }
-        public string ProfilePic { get; set; }
+        public string? ProfilePic { get; set; }
         public int? Code { get; set; }
         public bool ValidEmail { get; set; }
-        public DateTime CreatedAt { get; set; }
-        public DateTime UpdatedAt { get; set; }
+        public DateTime? CreatedAt { get; set; }
+        public DateTime? UpdatedAt { get; set; }
         public string? RefreshToken { get; set; }
-        public DateTime RefreshTokenExpireTime { get; set; }
+        public DateTime? RefreshTokenExpireTime { get; set; }
     }
 }
